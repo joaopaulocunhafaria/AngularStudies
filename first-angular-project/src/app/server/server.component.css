@@ -1,0 +1,13 @@
+p{
+    margin-top: 2%;
+    width: 36%;
+    font-size: small;
+}
+
+.online{
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.ofline{
+    font-family: 'Times New Roman', Times, serif;
+}
