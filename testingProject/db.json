@@ -1,13 +1,44 @@
 {
-    "posts": [
-      { "id": "1", "title": "a title" },
-      { "id": "2", "title": "another title" }
-    ],
-    "comments": [
-      { "id": "1", "text": "a comment about post 1", "postId": "1" },
-      { "id": "2", "text": "another comment about post 1", "postId": "1" }
-    ],
-    "profile": {
-      "name": "typicode"
-    }
-  }
+    "cadastros":[
+        {
+            "nome": "João",
+            "idade": 25,
+            "endereco": "Rua A, 123"
+        },
+        {
+            "nome": "Maria",
+            "idade": 30,
+            "endereco": "Avenida B, 456"
+        },
+        {
+            "nome": "Carlos",
+            "idade": 22,
+            "endereco": "Rua C, 789"
+        },
+        {
+            "nome": "Ana",
+            "idade": 28,
+            "endereco": "Avenida D, 1011"
+        },
+        {
+            "nome": "Pedro",
+            "idade": 35,
+            "endereco": "Rua E, 1213"
+        },
+        {
+            "nome": "Mariana",
+            "idade": 26,
+            "endereco": "Avenida F, 1415"
+        },
+        {
+            "nome": "Lucas",
+            "idade": 29,
+            "endereco": "Rua G, 1617"
+        },
+        {
+            "nome": "Isabela",
+            "idade": 32,
+            "endereco": "Avenida H, 1819"
+        }
+    ]
+}

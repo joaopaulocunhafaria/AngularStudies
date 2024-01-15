@@ -1,35 +1,24 @@
-<input type="text" class="form-control"
-(input)="onUpDateServerName($event)" [value]="searchMessage" 
-(click)="changeMessage()">
+<input type="text" class="form-control" (input)="onUpDateServerName($event)" [value]="searchMessage"
+  (click)="changeMessage()">
 <p>Server Name: {{serverName}}</p>
 
-<button class="btn btn-primary" [disabled]="!allowsNewServer"
-(click)="onCreatServer()">
-    Creat new server
-</button>       
+<button class="btn btn-primary" [disabled]="!allowsNewServer" (click)="onCreatServer()">
+  Creat new server
+</button>
 
-<button class="btn btn-primary"
-[disabled]="!(servers.length>0)"
-  (click)="deleteServer()"
->Delete Server</button>
+<button class="btn btn-primary" [disabled]="!(servers.length>0)" (click)="deleteServer()">Delete Server</button>
 
 
-<p [innerHTML]="serverCreatStatus" 
-*ngIf="createdStatus()"
-></p>   
+<p [innerHTML]="serverCreatStatus" *ngIf="createdStatus()"></p>
 
-<input type="text" class="form-control"
-[(ngModel)]="userName">
+<input type="text" class="form-control" [(ngModel)]="userName">
 
 <p>{{userName}}</p>
-<button 
-class="btn btn-primary"
-[disabled]="emptyName()"
- (click)="onClearUserName()"
- >Clean user Name</button>
+<button class="btn btn-primary" [disabled]="emptyName()" (click)="onClearUserName()">Clean user Name</button>
 <app-server *ngFor="let serve of servers"></app-server>
 
-<button class="btn btn-primary"> Change Display</button>
-<p>{{displayMessage}}</p>
-
-//terminar as tasks de exercicios do curso
+<button class="btn btn-primary" (click)="changeMessage()">Toogle Display</button>
+<button class="btn btn-primary" (click)="IncreaseCounter()">increase counter</button>
+<p *ngIf="showDisplay">{{displayMessage[counter]}}</p>
+<p *ngFor="let number of counterArray"
+[ngStyle]="changeStyle()">{{number}}</p>
