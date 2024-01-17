@@ -27,7 +27,15 @@ export class RecipeListComponent {
 
 
   deleteRecipe() {
-   this.recipes.pop()
+
+   const index:number= this.recipes.findIndex(object=>object.name===this.name);
+
+   if (index==-1) {
+       return false;
+   }
+
+
+  this.recipes.splice(index,1);
 
 }
 }
