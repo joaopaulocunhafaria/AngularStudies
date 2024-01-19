@@ -10,14 +10,14 @@ export class RecipeListComponent {
 
 
 
-  description: string;
-  name: string;
-  imageURL:string;
+  description: string='';
+  name: string='';
+  imageURL:string='';
 
   recipes: Recipe[] = []
 
   addRecipe() {
-   if (this.name == "" || this.description == "" || this.imageURL=="") {
+   if (this.name == '' || this.description == '' || this.imageURL=='') {
       return            
     }
     this.recipes.push(new Recipe(this.name,this.description,this.imageURL))

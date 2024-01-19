@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'app-header',
@@ -7,7 +7,15 @@ import { Component } from '@angular/core';
 })
 export class HeaderComponent {
 
-  
+  @Output() recipeOrshoppingList = new EventEmitter<boolean>();
+  //false=recipe,true=shopping List
 
+  recipe() {
+    this.recipeOrshoppingList.emit(false)
+  }
 
+  shopping() {
+    this.recipeOrshoppingList.emit(true)
+
+  }
 }

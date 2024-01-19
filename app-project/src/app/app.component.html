@@ -1,6 +1,6 @@
 
-<app-header class="header"></app-header>
+<app-header class="header" (recipeOrshoppingList)="switch($event)"></app-header>
 <div class="container">
-     <app-recipes></app-recipes>
-     <app-shopping-list></app-shopping-list>
+     <app-recipes *ngIf="recipeOrShopping==false"></app-recipes>
+     <app-shopping-list *ngIf="recipeOrShopping==true"></app-shopping-list>
 </div>

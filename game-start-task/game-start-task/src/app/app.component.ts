@@ -1,4 +1,3 @@
-
 import { Component } from '@angular/core';
 
 @Component({
@@ -8,9 +7,14 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
 
-  recipeOrShopping: boolean=false;
+  games= []
 
-  switch(answ: boolean) {
-    this.recipeOrShopping = answ;
+  addGame(number:{num:number}) {
+       this.games.push(number.num)
   }
+
+  delteGame() {
+     this.games=[]
+  }
+    
 }
