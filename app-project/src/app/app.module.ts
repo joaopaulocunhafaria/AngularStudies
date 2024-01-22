@@ -11,6 +11,7 @@ import { ShoppingEditComponent } from './shopping-list/shopping-edit/shopping-ed
 import { ShoppingListComponent } from './shopping-list/shopping-list.component';
 import { RecipesComponent } from './recipes/recipes.component';
 import { BestHighlightDirective } from './directives/best-highlight.directive';
+import { UnlessDirective } from './directives/unless/unless.directive';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { BestHighlightDirective } from './directives/best-highlight.directive';
     RecipeDetaiComponent,
     RecipeItemComponent,
     RecipesComponent,
-    BestHighlightDirective
+    BestHighlightDirective,
+    UnlessDirective
   ],
   imports: [
     BrowserModule,
