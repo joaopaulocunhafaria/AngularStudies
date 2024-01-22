@@ -12,6 +12,7 @@ import { ShoppingListComponent } from './shopping-list/shopping-list.component';
 import { RecipesComponent } from './recipes/recipes.component';
 import { BestHighlightDirective } from './directives/best-highlight.directive';
 import { UnlessDirective } from './directives/unless/unless.directive';
+import { DropDownDirective } from './shared/drop-down.directive';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { UnlessDirective } from './directives/unless/unless.directive';
     RecipeItemComponent,
     RecipesComponent,
     BestHighlightDirective,
-    UnlessDirective
+    UnlessDirective,
+    DropDownDirective
   ],
   imports: [
     BrowserModule,

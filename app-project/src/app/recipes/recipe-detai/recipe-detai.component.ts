@@ -10,6 +10,6 @@ export class RecipeDetaiComponent {
 
    @Input() recipe:Recipe
 
-
+  showDropDown:boolean=false;
 
 }
