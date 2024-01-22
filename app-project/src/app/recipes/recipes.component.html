@@ -1,9 +1,11 @@
     <div class="row">
     <div class="col-md-5">
-        <app-recipe-list></app-recipe-list>
+        <app-recipe-list (onPassingRecipe)="recipeEl = $event"></app-recipe-list>
     </div>
     <div class="col-md-7">
-            <app-recipe-detai></app-recipe-detai>
+            <app-recipe-detai *ngIf="recipeEl" [recipe]="recipeEl" >
+
+            </app-recipe-detai>
         </div>
 
     </div>

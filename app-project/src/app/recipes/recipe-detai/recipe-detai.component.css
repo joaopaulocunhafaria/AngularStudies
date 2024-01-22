@@ -5,3 +5,11 @@
   border-radius: 5px;
   width: 30%;
 }
+
+h1{
+  font-size: 100%;
+}
+
+img{
+  max: height 50px;;
+}

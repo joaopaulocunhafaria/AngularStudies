@@ -10,6 +10,7 @@ import { HeaderComponent } from './header/header.component';
 import { ShoppingEditComponent } from './shopping-list/shopping-edit/shopping-edit.component';
 import { ShoppingListComponent } from './shopping-list/shopping-list.component';
 import { RecipesComponent } from './recipes/recipes.component';
+import { BestHighlightDirective } from './directives/best-highlight.directive';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { RecipesComponent } from './recipes/recipes.component';
     RecipeListComponent,
     RecipeDetaiComponent,
     RecipeItemComponent,
-    RecipesComponent
+    RecipesComponent,
+    BestHighlightDirective
   ],
   imports: [
     BrowserModule,
