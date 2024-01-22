@@ -1,10 +1,14 @@
-import { Directive } from '@angular/core';
+import { Directive, ElementRef, OnInit, Renderer2 } from '@angular/core';
 
 @Directive({
   selector: '[appBestHighlight]'
 })
-export class BestHighlightDirective {
+export class BestHighlightDirective implements OnInit{
 
-  constructor() { }
+  constructor(private elRef:ElementRef,private render:Renderer2) { }
+
+  ngOnInit(): void {
+    this.render.setStyle(this.elRef.nativeElement, "color ", "green")
+  }
 
 }
