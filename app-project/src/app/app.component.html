@@ -1,8 +1,10 @@
 
 <app-header class="header" (recipeOrshoppingList)="switch($event)"></app-header>
 <div class="container">
+     <p appBestHighlight [defaultColor]="'transparent'" 
+     [highlightColor]="'yellow'">A test  paragraph</p>
+
      <app-recipes *ngIf="recipeOrShopping==false"></app-recipes>
      <app-shopping-list *ngIf="recipeOrShopping==true"></app-shopping-list>
-     <p appBestHighlight>A test  paragraph</p>
-
+    
 </div>
