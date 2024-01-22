@@ -32,26 +32,19 @@ export class RecipeListComponent {
     if (this.name == '' || this.description == '' || this.imageURL == '') {
       return
     }
+    //else if(this.recipes.some(obj => onrejectionhandled.name==this.name)){
+    //   console.log("Ja existe um elemento com este nome")
+    //   return
+    // }
+
     this.recipes.push(new Recipe(this.name, this.description, this.imageURL))
 
 
   }
 
 
-  deleteRecipe() {
 
-    const index: number = this.recipes.findIndex(object => object.name === this.name);
-
-    if (index == -1) {
-      return false;
-    }
-
-
-    this.recipes.splice(index, 1);
-
-  }
-
-  passingRecipe(recipe:Recipe) {
+  passingRecipe(recipe: Recipe) {
 
     this.onPassingRecipe.emit(recipe)
 
