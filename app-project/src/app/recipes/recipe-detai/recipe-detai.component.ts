@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { Recipe } from '../recipe.model';
+import { RecipeService } from '../../services/recipe/recipe.service';
 
 @Component({
   selector: 'app-recipe-detai',
@@ -8,8 +9,10 @@ import { Recipe } from '../recipe.model';
 })
 export class RecipeDetaiComponent {
 
-   @Input() recipe:Recipe
+  constructor(private recipeService: RecipeService) { }
 
-  showDropDown:boolean=false;
+  @Input() recipe: Recipe;
+
+  showDropDown: boolean = false;
 
 }

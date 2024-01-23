@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 import { Recipe } from '../recipe.model';
+import { RecipeService } from '../../services/recipe/recipe.service';
 
 @Component({
   selector: 'app-recipe-list',
@@ -8,45 +9,18 @@ import { Recipe } from '../recipe.model';
 })
 export class RecipeListComponent {
 
-  @Output() onPassingRecipe = new EventEmitter<Recipe>();
-
+constructor(private recipeService:RecipeService){}
+ 
   description: string = '';
   name: string = '';
   imageURL: string = '';
 
-  recipes: Recipe[] = [{
-    name: "apple",
-    description: 'fresh apples',
-    imagePath: "https://cdn.pixabay.com/photo/2015/02/13/00/43/apples-634572_960_720.jpg"
-  }, {
-    name: "salmon",
-    description: 'ocean salmon',
-    imagePath: "https://cdn.pixabay.com/photo/2014/11/05/15/57/salmon-518032_960_720.jpg"
-  }, {
-    name: "vegetables",
-    description: 'green vegetables',
-    imagePath: "https://cdn.pixabay.com/photo/2016/08/11/08/04/vegetables-1584999_960_720.jpg"
-  }]
+  recipes: Recipe[] = this.recipeService.recipes
 
   addRecipe() {
-    if (this.name == '' || this.description == '' || this.imageURL == '') {
-      return
-    }
-    //else if(this.recipes.some(obj => onrejectionhandled.name==this.name)){
-    //   console.log("Ja existe um elemento com este nome")
-    //   return
-    // }
-
-    this.recipes.push(new Recipe(this.name, this.description, this.imageURL))
-
-
+      this.recipeService.addRecipe(this.name,this.description,this.imageURL)
   }
 
 
-
-  passingRecipe(recipe: Recipe) {
-
-    this.onPassingRecipe.emit(recipe)
-
-  }
+ 
 }

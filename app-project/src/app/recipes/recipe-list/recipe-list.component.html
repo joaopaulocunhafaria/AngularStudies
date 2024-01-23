@@ -11,15 +11,14 @@
         <button class="btn btn-sucess" id="Recipe" (click)="addRecipe()">
             New recipe
         </button>
-      
+
 
 
     </div>
 </div>
 <div class="row">
     <div class="col-xs-12">
-        <app-recipe-item *ngFor="let recipe of recipes" [recipe]="recipe"
-        (onSelectRecipe)="passingRecipe(recipe)"></app-recipe-item>
+        <app-recipe-item *ngFor="let recipe of recipes" [recipe]="recipe"></app-recipe-item>
 
     </div>
 </div>
