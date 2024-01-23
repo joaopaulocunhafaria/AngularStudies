@@ -17,6 +17,8 @@ export class AccountService {
       status: 'unknown'
     }
   ];  
+  showparagraph:boolean;
+
   
    constructor(private logService:LoggingService){
    }
@@ -31,4 +33,9 @@ export class AccountService {
     this.logService.loggingstatusChange(updateInfo.newStatus)
   }
  
+  changeVisibilyti(value:boolean){
+     this.showparagraph=value
+     console.log("Chegou  ate aqui")
+  }
+
 }

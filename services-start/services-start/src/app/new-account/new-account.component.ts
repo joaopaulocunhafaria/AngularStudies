@@ -6,16 +6,19 @@ import { AccountService } from '../services/account.service';
   selector: 'app-new-account',
   templateUrl: './new-account.component.html',
   styleUrls: ['./new-account.component.css'],
-  providers:[LoggingService]
+  providers: [LoggingService]
 })
 export class NewAccountComponent {
- 
-  constructor(private service: LoggingService, private accountService:AccountService) { }
 
+  constructor(private service: LoggingService, private accountService: AccountService) { }
+  
   onCreateAccount(accountName: string, accountStatus: string) {
-     this.accountService.onAddAcount({name:accountName,status:accountStatus})
-
+    this.accountService.onAddAcount({ name: accountName, status: accountStatus })
+  }
+  input() {
+     this.accountService.changeVisibilyti(!this.accountService.showparagraph)
    
 
-  }
+   }
+     
 }
