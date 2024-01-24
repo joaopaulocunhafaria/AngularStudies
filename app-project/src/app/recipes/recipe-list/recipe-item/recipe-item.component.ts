@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { RecipeService } from '../../../services/recipe/recipe.service';
+import { Recipe } from '../../recipe.model';
 
 @Component({
   selector: 'app-recipe-item',
@@ -10,11 +11,7 @@ export class RecipeItemComponent {
 
  constructor(private recipeService:RecipeService){}
  
-  @Input() recipe: {
-    name: string,
-    description: string,
-    imagePath: string
-  }
+  @Input() recipe: Recipe
 
 
 

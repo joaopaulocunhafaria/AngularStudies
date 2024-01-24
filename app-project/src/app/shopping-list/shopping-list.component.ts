@@ -6,8 +6,7 @@ import { ShoppingService } from '../services/shopping/shopping.service';
   selector: 'app-shopping-list',
   templateUrl: './shopping-list.component.html',
   styleUrl: './shopping-list.component.css',
-  providers: [ShoppingService]
-})
+  })
 export class ShoppingListComponent implements OnInit {
 
   constructor(private shopppingService: ShoppingService) {
@@ -20,7 +19,7 @@ export class ShoppingListComponent implements OnInit {
     this.ingredients = this.shopppingService.getIngredients()
     this.shopppingService.ingredientsChange
       .subscribe(
-        (ingredients: Ingredient[]) => this.ingredients = ingredients
+        (ingredients: Ingredient[]) => {this.ingredients = ingredients}
       )
   }
 

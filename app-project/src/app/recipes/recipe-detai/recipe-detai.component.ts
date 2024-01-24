@@ -9,10 +9,15 @@ import { RecipeService } from '../../services/recipe/recipe.service';
 })
 export class RecipeDetaiComponent {
 
+
   constructor(private recipeService: RecipeService) { }
 
   @Input() recipe: Recipe;
 
   showDropDown: boolean = false;
+
+  onAddToShoppingList() {
+     this.recipeService.onAddToShoppingList(this.recipe.ingredients)
+  }
 
 }

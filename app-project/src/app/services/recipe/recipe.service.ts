@@ -1,28 +1,36 @@
 import { EventEmitter, Injectable } from '@angular/core';
 import { Recipe } from '../../recipes/recipe.model';
+import { Ingredient } from '../../shared/ingredient.model';
+import { ShoppingService } from '../shopping/shopping.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class RecipeService {
 
-  constructor() { }
-   
-   showDetail:boolean=true;
-   recipe = new EventEmitter<Recipe>();
+  constructor(private shoppingService:ShoppingService) { }
+
+  showDetail: boolean = true;
+
+  recipe = new EventEmitter<Recipe>();
 
   recipes: Recipe[] = [{
     name: "apple",
     description: 'fresh apples',
-    imagePath: "https://cdn.pixabay.com/photo/2015/02/13/00/43/apples-634572_960_720.jpg"
+    imagePath: "https://cdn.pixabay.com/photo/2015/02/13/00/43/apples-634572_960_720.jpg",
+    ingredients: [
+      { name: "trigo", amount: 3 }
+    ]
   }, {
     name: "salmon",
     description: 'ocean salmon',
-    imagePath: "https://cdn.pixabay.com/photo/2014/11/05/15/57/salmon-518032_960_720.jpg"
+    imagePath: "https://cdn.pixabay.com/photo/2014/11/05/15/57/salmon-518032_960_720.jpg",
+    ingredients: [{ name: "fish", amount: 3 }]
   }, {
     name: "vegetables",
     description: 'green vegetables',
-    imagePath: "https://cdn.pixabay.com/photo/2016/08/11/08/04/vegetables-1584999_960_720.jpg"
+    imagePath: "https://cdn.pixabay.com/photo/2016/08/11/08/04/vegetables-1584999_960_720.jpg",
+    ingredients: [{ name: "lettuce", amount: 4 }]
   }]
 
 
@@ -31,9 +39,11 @@ export class RecipeService {
       return
     }
 
-    this.recipes.push(new Recipe(name, description, imageURL))
+    this.recipes.push(new Recipe(name, description, imageURL, []))
   }
-  
 
- 
+  onAddToShoppingList(ingredients: Ingredient[]) {
+    this.shoppingService.addIngredients(ingredients);
+  }
+
 }
