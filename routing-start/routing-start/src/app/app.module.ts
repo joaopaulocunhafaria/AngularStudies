@@ -13,6 +13,8 @@ import { ServerComponent } from './servers/server/server.component';
 import { ServersService } from './servers/servers.service'; 
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { appRoutingModule } from './app-routing.module';
+import { AuthService } from './auth.service';
+import { AuthGuardian } from './auth-guard.service';
 
 
 
@@ -33,7 +35,7 @@ import { appRoutingModule } from './app-routing.module';
     FormsModule, 
     appRoutingModule
   ],
-  providers: [ServersService],
+  providers: [ServersService,AuthService,AuthGuardian],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
