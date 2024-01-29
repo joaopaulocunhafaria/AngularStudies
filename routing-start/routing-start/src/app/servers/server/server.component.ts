@@ -24,12 +24,13 @@ export class ServerComponent implements OnInit {
   }
 
 
-  onReload() {
-    //  this.router.navigate(["servers"], {relativeTo:this.route})
-    this.router.navigate(["servers"])
-  }
+  // onReload() {
+  //   //  this.router.navigate(["servers"], {relativeTo:this.route})
+  //   this.router.navigate(["servers"])
+  // }
 
   onEdit(){
-    this.router.navigate([ "edit"],{relativeTo:this.route} )   
+    this.router.navigate([ "edit"],{relativeTo:this.route, queryParamsHandling:'preserve'} )   
   }
 }
+  
