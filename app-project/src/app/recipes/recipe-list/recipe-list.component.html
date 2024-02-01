@@ -8,7 +8,8 @@
         <label for="text">Image URL</label>
         <input type="text" class="form-control" id="exampleInput" placeholder="imageUrl" [(ngModel)]="imageURL">
         <hr>
-        <button class="btn btn-sucess" id="Recipe" (click)="addRecipe()">
+        <button class="btn btn-sucess" id="Recipe" (click)="addRecipe()"
+        (click)="onNewRecipe()">
             New recipe
         </button>
 
