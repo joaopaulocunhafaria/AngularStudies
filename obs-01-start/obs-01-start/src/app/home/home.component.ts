@@ -1,6 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Observable, Subscription } from 'rxjs';
-import { combineAll } from 'rxjs-compat/operator/combineAll';
+import { filter, map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-home',
@@ -35,17 +35,28 @@ export class HomeComponent implements OnInit, OnDestroy {
 
     })
 
-    this.firstObservableSubscription = personalizedIntervalObserver
-      .subscribe(data => {
-        console.log(data)
-      }, error => {
-        console.log("erro, counter is" + error.message);
+    
 
-      },
-      ()=>{
-        console.log("Observable was completed");
-        
-      }
+    this.firstObservableSubscription = personalizedIntervalObserver.pipe(
+      filter(
+        (data:number)=>  data%2==0
+      ),
+    
+    map(
+      (data: number) => "Round: " + (data + 1)
+    ))
+      .subscribe(
+        data => {
+          console.log(data)
+        },
+        error => {
+          console.log("erro, counter is" + error.message);
+
+        },
+        () => {
+          console.log("Observable was completed");
+
+        }
       )
   }
 
