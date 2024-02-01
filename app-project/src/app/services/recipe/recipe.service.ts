@@ -8,18 +8,18 @@ import { ShoppingService } from '../shopping/shopping.service';
 })
 export class RecipeService {
 
-  constructor(private shoppingService:ShoppingService) { }
+  constructor(private shoppingService: ShoppingService) { }
 
   showDetail: boolean = true;
 
   recipe = new EventEmitter<Recipe>();
 
   recipes: Recipe[] = [{
-    name: "apple",
-    description: 'fresh apples',
+    name: "APPLE",
+    description: 'Fresh Apples',
     imagePath: "https://cdn.pixabay.com/photo/2015/02/13/00/43/apples-634572_960_720.jpg",
     ingredients: [
-      { name: "trigo", amount: 3 }
+      { name: "Trigo", amount: 3 }
     ]
   }, {
     name: "salmon",
@@ -44,6 +44,12 @@ export class RecipeService {
 
   onAddToShoppingList(ingredients: Ingredient[]) {
     this.shoppingService.addIngredients(ingredients);
+  }
+
+  finbByName(name: string): Recipe {
+    return this.recipes.find(
+      Recipe => Recipe.name == name
+    )
   }
 
 }

@@ -15,6 +15,9 @@ import { UnlessDirective } from './directives/unless/unless.directive';
 import { DropDownDirective } from './shared/drop-down.directive';
 import { RecipeService } from './services/recipe/recipe.service';
 import { ShoppingService } from './services/shopping/shopping.service';
+import { appRoutingModule } from './app-routing.module';
+import { RecipeStartComponent } from './recipes/recipe-start/recipe-start.component';
+import { RecipeEditComponent } from './recipes/recipe-edit/recipe-edit.component';
 
 @NgModule({
   declarations: [
@@ -28,11 +31,14 @@ import { ShoppingService } from './services/shopping/shopping.service';
     RecipesComponent,
     BestHighlightDirective,
     UnlessDirective,
-    DropDownDirective
+    DropDownDirective,
+    RecipeStartComponent,
+    RecipeEditComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
+    appRoutingModule
   ],
   providers: [RecipeService,ShoppingService],
   bootstrap: [AppComponent]
