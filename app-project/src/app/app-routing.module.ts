@@ -9,7 +9,7 @@ import { RecipeEditComponent } from "./recipes/recipe-edit/recipe-edit.component
 //importante ficar atento a ordem das rotas, pra saber
 //quais tem prioridade
 const appRoutes:Routes=[
-  {path:"",component:RecipesComponent},
+  {path:"",redirectTo:"/recipes"},
   {path:"recipes",component:RecipesComponent, children:[
     {path:"", component:RecipeStartComponent},
     {path:"new", component:RecipeEditComponent},

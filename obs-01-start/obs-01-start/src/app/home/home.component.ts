@@ -1,6 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { Observable, Subscription } from 'rxjs';
+import { Observable, Subscriber, Subscription } from 'rxjs';
 import { filter, map } from 'rxjs/operators';
+import { userService } from '../user/user.service';
 
 @Component({
   selector: 'app-home',
@@ -11,7 +12,8 @@ export class HomeComponent implements OnInit, OnDestroy {
 
   private firstObservableSubscription: Subscription;
 
-  constructor() { }
+
+  constructor( ) { }
 
 
   ngOnInit() {
@@ -35,16 +37,16 @@ export class HomeComponent implements OnInit, OnDestroy {
 
     })
 
-    
+
 
     this.firstObservableSubscription = personalizedIntervalObserver.pipe(
       filter(
-        (data:number)=>  data%2==0
+        (data: number) => data % 2 == 0
       ),
-    
-    map(
-      (data: number) => "Round: " + (data + 1)
-    ))
+
+      map(
+        (data: number) => "Round: " + (data + 1)
+      ))
       .subscribe(
         data => {
           console.log(data)
@@ -58,11 +60,13 @@ export class HomeComponent implements OnInit, OnDestroy {
 
         }
       )
+
+ 
+
   }
 
   ngOnDestroy(): void {
-    this.firstObservableSubscription.unsubscribe();
-
+    this.firstObservableSubscription.unsubscribe(); 
   }
 
 }

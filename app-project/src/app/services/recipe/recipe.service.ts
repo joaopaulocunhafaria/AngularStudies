@@ -1,4 +1,4 @@
-import { EventEmitter, Injectable } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { Recipe } from '../../recipes/recipe.model';
 import { Ingredient } from '../../shared/ingredient.model';
 import { ShoppingService } from '../shopping/shopping.service';
@@ -12,7 +12,6 @@ export class RecipeService {
 
   showDetail: boolean = true;
 
-  recipe = new EventEmitter<Recipe>();
 
   recipes: Recipe[] = [{
     name: "APPLE",
