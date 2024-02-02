@@ -11,7 +11,7 @@ export class AppComponent {
     const suggestedName = 'Superuser';
   }
 
-  @ViewChild("f") singUpForm : NgForm
+  @ViewChild("form") singUpForm : NgForm
 
   // onSubmit(reference:HTMLFormElement){
   //   console.log(reference);
