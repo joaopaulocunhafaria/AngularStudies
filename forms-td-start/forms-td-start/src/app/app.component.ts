@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-root',
@@ -10,9 +11,18 @@ export class AppComponent {
     const suggestedName = 'Superuser';
   }
 
+  @ViewChild("f") singUpForm : NgForm
+
+  // onSubmit(reference:HTMLFormElement){
+  //   console.log(reference);
+  // }
+
   onSubmit(){
-    console.log("Submited");
+    console.log(this.singUpForm);
+    console.log(this.singUpForm.form.value.username);
     
   }
+
+
 
 }
