@@ -19,7 +19,7 @@ export class AppComponent {
 
   onSubmit(){
     console.log(this.singUpForm);
-    console.log(this.singUpForm.form.value.username);
+    console.log(this.singUpForm.form.controls.email.valid);
     
   }
 
