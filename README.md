@@ -1,4 +1,4 @@
-Repositorio dedicado ao estudo do framework voltado para o frontEnd - ANGULAR
+Repositorio dedicado ao estudo do framework frontEnd ANGULAR
 
 
 **IMPORTANTE**:
