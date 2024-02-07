@@ -7,7 +7,13 @@
             <label for="username">Username</label>
             <input formControlName="username" type="text" id="username" class="form-control">
             <span class="help-block"
-              *ngIf="!singInForm.get('userData.username').valid && singInForm.get('userData.username').touched">Please enter a valid
+              *ngIf="!singInForm.get('userData.username').valid && singInForm.get('userData.username').touched">
+              <span 
+              *ngIf="this.singInForm.get('userData.username').errors['nameIsForbidden']"
+              class="help-block">
+             This name is invalid! 
+            </span>
+              Please enter a valid
               name!</span>
           </div>
           <div class="form-group">
