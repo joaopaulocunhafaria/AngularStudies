@@ -1,46 +1,45 @@
 <div class="container">
   <div class="row">
     <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
-      <form [formGroup]="singInForm"  (ngSubmit)="onSubmit()">
-        <div class="form-group">
-          <label for="username">Username</label>
-          <input
-            formControlName="username"
-            type="text"
-            id="username"
-            class="form-control">
+      <form [formGroup]="singInForm" (ngSubmit)="onSubmit()">
+        <div formGroupName="userData"> 
+          <div class="form-group">
+            <label for="username">Username</label>
+            <input formControlName="username" type="text" id="username" class="form-control">
             <span class="help-block"
-             *ngIf="!singInForm.get('username').valid && singInForm.get('username').touched" 
-            >Please enter a valid name!</span>
-        </div>
-        <div class="form-group">
-          <label for="email">email</label>
-          <input
-            formControlName="email"
-            type="text"
-            id="email"
-            class="form-control">
-         
-            <span class="help-block"
-             *ngIf="!singInForm.get('email').valid && singInForm.get('email').touched" 
-            >Please enter a valid email!</span>
+              *ngIf="!singInForm.get('userData.username').valid && singInForm.get('userData.username').touched">Please enter a valid
+              name!</span>
           </div>
+          <div class="form-group">
+            <label for="email">email</label>
+            <input formControlName="email" type="text" id="email" class="form-control">
+
+            <span class="help-block" *ngIf="!singInForm.get('userData.email').valid && singInForm.get('userData.email').touched">Please
+              enter a valid email!</span>
+          </div>
+        </div>
         <div class="radio" *ngFor="let gender of genders">
           <label>
-            <input
-              formControlName="gender"
-              type="radio"
-              [value]="gender">{{ gender }}
+            <input formControlName="gender" type="radio" [value]="gender">{{ gender }}
           </label>
         </div>
-         
-        <button class="btn btn-primary"
-          type="submit">Submit</button>
-       
-          <span class="help-block"
-          *ngIf="!singInForm.valid && singInForm.touched" 
-         >Please enter a valid data!</span>
-        </form>
+        <div formArrayName="hobbies">
+          <button 
+          class="btn btn-success"
+           type="button"
+            (click)="onAdHobbie()">Add hobbie</button>
+            <div
+             *ngFor="let hobbie of getControls(); let i  = index"
+            class="form-group"
+             >
+             <input type="text" class="form-control" [formControlName]="i">
+            </div>
+          </div>
+
+        <button class="btn btn-primary" type="submit">Submit</button>
+
+        <span class="help-block" *ngIf="!singInForm.valid && singInForm.touched">Please enter a valid data!</span>
+      </form>
     </div>
   </div>
 </div>
