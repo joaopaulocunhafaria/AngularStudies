@@ -9,31 +9,6 @@ import { Observable } from 'rxjs/Observable';
 })
 export class AppComponent implements OnInit {
 
-
-  serverForm:FormGroup;
-
-
-
-
- ngOnInit(): void {
-     
-  this.serverForm =  new FormGroup({
-    'servername': new FormControl(null, Validators.required),
-    'email': new FormControl(null, [Validators.required,Validators.email]),
-    'serverstatus': new FormControl('critical')
-
-  })
-   
- }
-
- onSubmit(){
-  console.log(this.serverForm.value);
-  
- }
-
-}
-
-/*
   genders = ['male', 'female'];
 
   singInForm: FormGroup;
@@ -112,4 +87,8 @@ export class AppComponent implements OnInit {
 
     return promise;
   }
+}
+
+/*
+
  */
