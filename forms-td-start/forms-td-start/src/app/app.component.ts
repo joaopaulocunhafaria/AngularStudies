@@ -7,12 +7,28 @@ import { NgForm } from '@angular/forms';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+  
+  
   suggestUserName() {
     const suggestedName = 'Superuser';
+    this.singUpForm.setValue({
+      userdata:{
+        username:suggestedName,
+        email:''
+      },
+      secret:'pet',
+      gender:'male'
+     });
+  
   }
 
-  @ViewChild("form") singUpForm : NgForm
+  @ViewChild("form") singUpForm : NgForm;
 
+  genders=["male", "female"]
+
+  
+  defaultQuestion:string="pet";
+  
   // onSubmit(reference:HTMLFormElement){
   //   console.log(reference);
   // }
