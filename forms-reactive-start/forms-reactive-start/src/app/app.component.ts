@@ -6,17 +6,23 @@ import { FormControl, FormGroup } from '@angular/forms';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent implements OnInit{
+export class AppComponent implements OnInit {
+
   genders = ['male', 'female'];
 
   singInForm: FormGroup;
 
   ngOnInit(): void {
-      this.singInForm= new FormGroup({
-        'username': new FormControl(null),
-        'email': new FormControl(null),
-        'gender': new FormControl('male')
-      })
+    this.singInForm = new FormGroup({
+      'username': new FormControl(null),
+      'email': new FormControl(null),
+      'gender': new FormControl('male')
+    })
   }
- 
+
+
+  onSubmit() {
+   console.log(this.singInForm);
+   
+  }
 }
