@@ -25,21 +25,29 @@ export class AppComponent implements OnInit {
       'hobbies': new FormArray([])
     })
 
-    this.singInForm.statusChanges.subscribe(
-      (value) => {
-        console.log(value);
-      }
-    )
+      // this.singInForm.statusChanges.subscribe(
+      //   (value) => {
+      //     console.log(value);
+      //   }
+      // )
 
-    this.singInForm.setValue(
-      {
+      // this.singInForm.setValue(
+      //   {
+      //     'userData': {
+      //       'username': "Joao",
+      //       'email': "test@test.com"
+      //     },
+      //     'gender': 'female',
+      //     'hobbies': []
+      //   })
+      
+
+      this.singInForm.patchValue({
         'userData': {
-          'username': "Joao",
-          'email': "test@test.com"
-        },
-        'gender': 'female',
-        'hobbies': []
+          'username': 'Joao'
+        }
       })
+
   }
 
 
