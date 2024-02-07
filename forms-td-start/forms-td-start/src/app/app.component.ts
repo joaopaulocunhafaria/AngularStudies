@@ -11,15 +11,22 @@ export class AppComponent {
   
   suggestUserName() {
     const suggestedName = 'Superuser';
-    this.singUpForm.setValue({
-      userdata:{
-        username:suggestedName,
-        email:''
-      },
-      secret:'pet',
-      gender:'male'
-     });
+    // this.singUpForm.setValue({
+    //   userdata:{
+    //     username:suggestedName,
+    //     email:''
+    //   },
+    //   secret:'pet',
+    //   gender:'male'
+    //  });
   
+
+   this.singUpForm.form.patchValue({
+    userdata:{
+      username:suggestedName
+    }
+   })
+
   }
 
   @ViewChild("form") singUpForm : NgForm;
