@@ -36,6 +36,8 @@ export class AppComponent {
     this.user.secret = this.singUpForm.value.secret;
     this.user.gender = this.singUpForm.value.gender;
     this.submitted=true;
+
+    this.singUpForm.reset()
   }
 
   suggestUserName() {
@@ -57,4 +59,8 @@ export class AppComponent {
 
   }
 
+  onSubmit2(){
+    
+  }
+  
 }
