@@ -7,8 +7,37 @@ import { NgForm } from '@angular/forms';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  
-  
+
+
+
+  @ViewChild("form") singUpForm: NgForm;
+
+  genders = ["male", "female"]
+
+
+  defaultQuestion: string = "pet";
+  user = {
+    name: '',
+    email: '',
+    secret: '',
+    gender: ''
+  };
+  submitted = false;
+
+  // onSubmit(reference:HTMLFormElement){
+  //   console.log(reference);
+  // }
+
+  onSubmit() {
+    console.log(this.singUpForm);
+
+    this.user.name = this.singUpForm.value.userdata.username;
+    this.user.email = this.singUpForm.value.userdata.email;
+    this.user.secret = this.singUpForm.value.secret;
+    this.user.gender = this.singUpForm.value.gender;
+    this.submitted=true;
+  }
+
   suggestUserName() {
     const suggestedName = 'Superuser';
     // this.singUpForm.setValue({
@@ -19,33 +48,13 @@ export class AppComponent {
     //   secret:'pet',
     //   gender:'male'
     //  });
-  
 
-   this.singUpForm.form.patchValue({
-    userdata:{
-      username:suggestedName
-    }
-   })
+    this.singUpForm.form.patchValue({
+      userdata: {
+        username: suggestedName
+      }
+    })
 
   }
-
-  @ViewChild("form") singUpForm : NgForm;
-
-  genders=["male", "female"]
-
-  
-  defaultQuestion:string="pet";
-  
-  // onSubmit(reference:HTMLFormElement){
-  //   console.log(reference);
-  // }
-
-  onSubmit(){
-    console.log(this.singUpForm);
-    console.log(this.singUpForm.form.controls.email.valid);
-    
-  }
-
-
 
 }
