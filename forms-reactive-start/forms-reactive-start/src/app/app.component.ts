@@ -24,6 +24,22 @@ export class AppComponent implements OnInit {
       'gender': new FormControl('male'),
       'hobbies': new FormArray([])
     })
+
+    this.singInForm.statusChanges.subscribe(
+      (value) => {
+        console.log(value);
+      }
+    )
+
+    this.singInForm.setValue(
+      {
+        'userData': {
+          'username': "Joao",
+          'email': "test@test.com"
+        },
+        'gender': 'female',
+        'hobbies': []
+      })
   }
 
 
