@@ -12,10 +12,12 @@ export class AppComponent implements OnInit {
 
   singInForm: FormGroup;
 
+  forbiddenNames=["Hitler", "Stalin"];
+
   ngOnInit(): void {
     this.singInForm = new FormGroup({
       'userData': new FormGroup({
-        'username': new FormControl(null, Validators.required),
+        'username': new FormControl(null, [Validators.required, this.forbiddeNames.bind(this)]),
         'email': new FormControl(null, [Validators.required, Validators.email])
       }),
       'gender': new FormControl('male'),
@@ -36,4 +38,13 @@ export class AppComponent implements OnInit {
   getControls(){
     return (<FormArray>this.singInForm.get('hobbies')).controls;
   }
+
+  forbiddeNames(control: FormControl):{[s:string]:boolean}{
+     if (this.forbiddenNames.indexOf(control.value)!== -1) {
+       return {"forbiddenName": true};
+     }else{
+      return null;
+     }
+  }
+
 }
