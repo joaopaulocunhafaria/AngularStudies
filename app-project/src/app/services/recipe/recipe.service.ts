@@ -29,7 +29,7 @@ export class RecipeService {
     name: "vegetables",
     description: 'green vegetables',
     imagePath: "https://cdn.pixabay.com/photo/2016/08/11/08/04/vegetables-1584999_960_720.jpg",
-    ingredients: [{ name: "lettuce", amount: 4 }]
+    ingredients: [{ name: "lettuce", amount: 4 },{ name: "lettuce", amount: 4 },{ name: "lettuce", amount: 4 },{ name: "lettuce", amount: 4 }]
   }]
 
 
