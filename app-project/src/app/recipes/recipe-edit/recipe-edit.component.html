@@ -1,6 +1,6 @@
 <div class="row">
     <div class="col-xs-12">
-        <form  >
+        <form  [formGroup]="recipeForm" (submit)="onSubmite()">
             <div class="row">
                 <div class="col-xs-12">
                     <button type="submit" class="btn btn-success">Save</button>
@@ -11,7 +11,9 @@
                 <div class="col-xs12">
                     <div class="form-group">
                         <label for="name">Name</label>
-                        <input class="form-control" type="text" name="name" id="name">
+                        <input 
+                        formControlName="name"
+                        class="form-control" type="text" name="name" id="name">
                     </div>
                 </div>
             </div>
@@ -19,7 +21,9 @@
                 <div class="col-xs12">
                     <div class="form-group">
                         <label for="imagePath">Image Path</label>
-                        <input class="form-control" type="text" id="imagePath">
+                        <input 
+                        formControlName="imagePath"
+                        class="form-control" type="text" id="imagePath">
                     </div>
                 </div>
             </div>
@@ -32,7 +36,9 @@
                 <div class="col-xs12">
                     <div class="form-group">
                         <label for="description">Description</label>
-                        <textarea class="form-control" rows="6" type="text" id="description">
+                        <textarea 
+                        formControlName="description"
+                        class="form-control" rows="6" type="text" id="description">
                         </textarea>
                     </div>
                 </div>
