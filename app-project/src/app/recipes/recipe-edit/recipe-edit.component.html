@@ -38,6 +38,17 @@
                     </div>
                 </div>
             </div>
+      
+            <div class="row">
+                <div class="col-xs-12">
+                    <button 
+                    (click)="onAddIngredient()"
+                    class="btn btn-success">Add Ingredient</button>
+                </div>
+               </div>
+          
+            <hr>
+           
             <div class="row">
                 <div class="col-xs-12" formArrayName="ingredients">
                     <div id="ingredients" class="row" *ngFor="let ingredientControl of getControls(); let i = index" [formGroup]="ingredientControl">
@@ -48,12 +59,15 @@
                             <input formControlName="amount" type="number" class="form-control">
                         </div>
                         <div class="col-xs-2">
-                            <button class="btn btn-danger">Delete</button>
+                            <button 
+                            (click)="onDeleteIngredient(i)"
+                            class="btn btn-danger" >Delete</button>
                         </div>
 
                     </div>
                 </div>
             </div>
+        
         </form>
     </div>
 </div>
