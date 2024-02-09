@@ -13,16 +13,10 @@ export class RecipeListComponent {
   constructor(private recipeService: RecipeService,
               private router: Router,
               private route:ActivatedRoute) { }
-
-  description: string = '';
-  name: string = '';
-  imageURL: string = '';
-
+ 
   recipes: Recipe[] = this.recipeService.recipes
 
-  addRecipe() {
-    this.recipeService.addRecipe(this.name, this.description, this.imageURL)
-  }
+   
 
   onNewRecipe() {
     this.router.navigate(["new"], { relativeTo: this.route })
