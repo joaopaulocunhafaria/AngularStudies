@@ -72,7 +72,7 @@ export class RecipeEditComponent implements OnInit {
       this.recipeService.addRecipe(this.recipeForm.value);
     }
  
-    this.router.navigate(['recipes',this.name]);
+    this.router.navigate(['../']);
  
   }
 
@@ -95,8 +95,6 @@ export class RecipeEditComponent implements OnInit {
     (<FormArray>this.recipeForm.get('ingredients')).removeAt(index)
   }
 
-  onCancel():void{
-    this.router.navigate(['recipes',this.name]);
-  }
+  
 
 }
