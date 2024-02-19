@@ -30,12 +30,7 @@ export class AppComponent implements OnInit {
   private fetchUsers() {
 
     this.http.get('http://localhost:8080/users')
-      .pipe(map( responseData => {
-            const usersArray = [];
-            for (const key in responseData) {
-                usersArray.push({...responseData[key]}, id:key)   
-            }
-      }))
+       
       .subscribe(
         users => {
 
