@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { map } from 'rxjs-compat/operator/map';
+import { HttpService } from './http.service';
 
 @Component({
   selector: 'app-root',
@@ -10,35 +10,22 @@ import { map } from 'rxjs-compat/operator/map';
 export class AppComponent implements OnInit {
 
   users: {};
-  ngOnInit(): void {
-    this.fetchUsers();
+
+
+  ngOnInit(): void { 
+    this.httpService.featchUsers();
   }
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private httpService: HttpService) { }
 
-  onCreatepost(user: { name: string, email: string, password: string, phone: string }) {
-
-    console.log(user);
-
-    this.http.post('http://localhost:8080/users',
-      user).subscribe(responseData => {
-        console.log(responseData);
-        this.fetchUsers()
-      });
+  onPostUser(user: { name: string, email: string, password: string, phone: string }) {
+    this.httpService.postUser(user);
   }
 
-  private fetchUsers() {
-
-    this.http.get('http://localhost:8080/users')
-       
-      .subscribe(
-        users => {
-
-          console.log(users);
-          return this.users = users;
-
-        }
-      )
+  fetchUsers() {
+    this.users =  this.httpService.featchUsers();
+    console.log(this.users);
+    
   }
 
   getUsers() {
