@@ -1,24 +1,99 @@
 <div class="container">
-  <div class="row">
-    <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
+    <div class="row">
+      <div class="col-xs-12 col-md-6 col-md-offset-3">
+        <form #postForm="ngForm" (ngSubmit)="onCreatepost(postForm.value)" >
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input
+              type="text"
+              class="form-control"
+              id="name"
+              required
+              ngModel
+              name="name"
+            />
+          </div>
+          <div class="form-group">
+            <label for="password">Password</label>
+            <input
+              class="form-control"
+              id="password"
+              required
+              ngModel
+              name="password"
+            /> 
+          </div>
+
+
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input
+              class="form-control"
+              id="email"
+              required
+              ngModel
+              name="email"
+            /> 
+          </div>
+          <div class="form-group">
+            <label for="phone">Tel</label>
+            <input
+              class="form-control"
+              id="phone"
+              required
+              ngModel
+              name="phone"
+            /> 
+          </div>
+          <button
+            class="btn btn-primary"
+            type="submit"
+            [disabled]="!postForm.valid"
+           
+            >
+            Send Post
+          </button>
+        </form>
+      </div>
+    </div>
+    <hr />
+    <div class="row">
+      <div class="col-xs-12 col-md-6 col-md-offset-3">
+        <button class="btn btn-primary"  >
+          Fetch Posts
+        </button>
+        |
+        <button
+          class="btn btn-danger"
+          
+        >
+          Clear Posts
+        </button>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-12 col-md-6 col-md-offset-3">
+           <button class="btn btn-primary"
+          (click)="getUsers()"
+           > get users</button>
+        <p>No posts available!</p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-12 col-md-6 col-md-offset-3">
       
-      <hr>
-      <h2>App Status:  {{appStatus | async}}</h2>
-      <hr>
-      <ul class="list-group">
-        <li
-          class="list-group-item"
-          *ngFor="let server of servers | filter:'small':'instanceType'"
-          [ngClass]="getStatusClasses(server)">
-          <span
-            class="badge">
-            {{ server.status }}
-          </span>
-          <strong>{{ server.name | shorten:5   }}</strong> |
-           {{ server.instanceType | uppercase }}
-            | {{ server.started | date:"fullDate"}}
-        </li>
-      </ul>
+      <div class="container" *ngFor="let user of users">
+        <p>{{user.name}}</p>
+        <p>{{user.phone}}</p>
+        <p>{{user.password}}</p>
+        <p>{{user.email}}</p>
+
+      </div>
+      
+      
+      
+      
+      </div>
     </div>
   </div>
-</div>
+  

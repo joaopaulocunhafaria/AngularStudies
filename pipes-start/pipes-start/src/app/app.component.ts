@@ -1,49 +1,52 @@
-import { Component } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Component, OnInit } from '@angular/core';
+import { map } from 'rxjs-compat/operator/map';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
 
-  appStatus = new Promise(( resolve) => {
-    setTimeout(() => {
-       resolve("stable")
-    },5000)
-  })
+  users: {};
+  ngOnInit(): void {
+    this.fetchUsers();
+  }
 
-  servers = [
-    {
-      instanceType: 'medium',
-      name: 'Production',
-      status: 'stable',
-      started: new Date(15, 1, 2017)
-    },
-    {
-      instanceType: 'large',
-      name: 'User Database',
-      status: 'stable',
-      started: new Date(15, 1, 2017)
-    },
-    {
-      instanceType: 'small',
-      name: 'Development Server',
-      status: 'offline',
-      started: new Date(15, 1, 2017)
-    },
-    {
-      instanceType: 'small',
-      name: 'Testing Environment Server',
-      status: 'stable',
-      started: new Date(15, 1, 2017)
-    }
-  ];
-  getStatusClasses(server: { instanceType: string, name: string, status: string, started: Date }) {
-    return {
-      'list-group-item-success': server.status === 'stable',
-      'list-group-item-warning': server.status === 'offline',
-      'list-group-item-danger': server.status === 'critical'
-    };
+  constructor(private http: HttpClient) { }
+
+  onCreatepost(user: { name: string, email: string, password: string, phone: string }) {
+
+    console.log(user);
+
+    this.http.post('http://localhost:8080/users',
+      user).subscribe(responseData => {
+        console.log(responseData);
+        this.fetchUsers()
+      });
+  }
+
+  private fetchUsers() {
+
+    this.http.get('http://localhost:8080/users')
+      .pipe(map( responseData => {
+            const usersArray = [];
+            for (const key in responseData) {
+                usersArray.push({...responseData[key]}, id:key)   
+            }
+      }))
+      .subscribe(
+        users => {
+
+          console.log(users);
+          return this.users = users;
+
+        }
+      )
+  }
+
+  getUsers() {
+    this.fetchUsers();
   }
 }
