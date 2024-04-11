@@ -17,13 +17,13 @@ export class AppComponent implements OnInit {
 
   ngOnInit(): void {
     this.singInForm = new FormGroup({
-      'userData': new FormGroup({
-        'username': new FormControl(null, [Validators.required, this.forbiddeNames.bind(this)]),
-        'email': new FormControl(null, [Validators.required, Validators.email], this.forbiddenEmail)
-      }),
-      'gender': new FormControl('male'),
-      'hobbies': new FormArray([])
-    })
+        'userData': new FormGroup({
+          'username': new FormControl(null, [Validators.required, this.forbiddeNames.bind(this)]),
+          'email': new FormControl(null, [Validators.required, Validators.email], this.forbiddenEmail)
+        }),
+        'gender': new FormControl('male'),
+        'hobbies': new FormArray([])
+      })
 
       // this.singInForm.statusChanges.subscribe(
       //   (value) => {

@@ -11,24 +11,40 @@ export class AppComponent implements OnInit {
 
   users: {};
 
-
-  ngOnInit(): void { 
-    this.httpService.featchUsers();
+  ngOnInit(): void {
+    this.httpService.featchUsers().subscribe(
+      users => {
+        this.users = users;
+        console.log(users);
+      }
+    )
   }
 
-  constructor(private http: HttpClient, private httpService: HttpService) { }
+  constructor(private httpService: HttpService) { }
 
   onPostUser(user: { name: string, email: string, password: string, phone: string }) {
     this.httpService.postUser(user);
+    this.fetchUsers();
   }
 
   fetchUsers() {
-    this.users =  this.httpService.featchUsers();
-    console.log(this.users);
-    
+    this.httpService.featchUsers().subscribe(
+      users => {
+        console.log(users );
+        
+        this.users = users;
+      }
+    )
   }
 
   getUsers() {
     this.fetchUsers();
+  }
+
+  onDeleteAll(){
+    console.log("entrou");
+    
+    this.httpService.deleteAllUser();
+    this.fetchUsers()
   }
 }

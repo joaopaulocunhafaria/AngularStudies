@@ -8,7 +8,7 @@ import { DropDownDirective } from './drop-down.directive';
 
 @NgModule({
   declarations: [
-    AppComponent, DropDownDirective
+    AppComponent 
   ],
   imports: [
     BrowserModule,
@@ -17,4 +17,5 @@ import { DropDownDirective } from './drop-down.directive';
   providers: [],
   bootstrap: [AppComponent]
 })
+
 export class AppModule { }

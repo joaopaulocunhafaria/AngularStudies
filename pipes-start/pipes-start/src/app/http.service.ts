@@ -18,21 +18,21 @@ export class HttpService {
     }
 
 
-    featchUsers() {
-        let users = []
-        this.http.get('http://localhost:8080/users')
+    featchUsers() { 
+        return this.http.get('http://localhost:8080/users')
           .pipe(map( responseData => {
             const usersArray = [];
             for (const key in responseData) {
                 usersArray.push({...responseData[key], id:key})   
             }
             return usersArray
-      }))
-        .subscribe(
-            responseData => {
-                  users = responseData;
-            }
-        )
-        return users;
+      })) 
+    }
+
+    deleteAllUser( ){
+        console.log("Ate no service");
+        
+        this.http.delete('http://localhost:8080/users') 
+        .subscribe();  
     }
 }
