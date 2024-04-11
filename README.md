@@ -1,37 +1,37 @@
-<!-- Início do README -->
+<!-- README Start -->
 
-<!-- Logo Angular -->
+<!-- Angular Logo -->
 <p align="center">
   <img src="https://angular.io/assets/images/logos/angular/angular.svg" alt="Angular Logo" width="200">
 </p>
 
-# Estudo do Framework Angular
+# Angular Framework Study
 
-Este repositório foi criado para armazenar projetos e estudos relacionados ao framework Angular. Aqui você encontrará exemplos, tutoriais e recursos úteis para aprender e aprimorar suas habilidades em Angular.
+This repository was created to store projects and studies related to the Angular framework. Here you will find examples, tutorials, and useful resources to learn and enhance your skills in Angular.
 
-## Conteúdo
+## Table of Contents
 
-- [Introdução ao Angular](#introdução-ao-angular)
-- [Instalação](#instalação)
-- [Primeiros Passos](#primeiros-passos)
-- [Componentes](#componentes)
-- [Diretivas](#diretivas)
-- [Serviços e Injeção de Dependência](#serviços-e-injeção-de-dependência)
-- [Roteamento](#roteamento)
-- [Formulários](#formulários)
-- [HTTP e Observables](#http-e-observables)
-- [Testes](#testes)
-- [Contribuição](#contribuição)
-- [Licença](#licença)
+- [Introduction to Angular](#introduction-to-angular)
+- [Installation](#installation)
+- [Getting Started](#getting-started)
+- [Components](#components)
+- [Directives](#directives)
+- [Services and Dependency Injection](#services-and-dependency-injection)
+- [Routing](#routing)
+- [Forms](#forms)
+- [HTTP and Observables](#http-and-observables)
+- [Testing](#testing)
+- [Contribution](#contribution)
+- [License](#license)
 
-## Introdução ao Angular
+## Introduction to Angular
 
-O Angular é um framework de desenvolvimento para a construção de aplicações web modernas e escaláveis usando JavaScript (ou TypeScript). Ele oferece uma estrutura robusta e flexível para criar aplicações Single Page Application (SPA) de forma eficiente.
+Angular is a development framework for building modern and scalable web applications using JavaScript (or TypeScript). It offers a robust and flexible structure to efficiently create Single Page Applications (SPA).
 
-## Instalação
+## Installation
 
-Para começar a desenvolver com Angular, você precisa ter o Node.js e o Angular CLI instalados. Se você ainda não os possui, pode instalá-los seguindo os passos na [documentação oficial do Angular](https://angular.io/guide/setup-local).
+To start developing with Angular, you need to have Node.js and Angular CLI installed. If you don't have them yet, you can install them by following the steps in the [official Angular documentation](https://angular.io/guide/setup-local).
 
 ```bash
-# Instalar Angular CLI globalmente
+# Install Angular CLI globally
 npm install -g @angular/cli
